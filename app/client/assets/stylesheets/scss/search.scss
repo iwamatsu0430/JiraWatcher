@@ -1,0 +1,67 @@
+search {
+
+  & form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  & input {
+    width: 100%;
+    border: none;
+    font-size: 18px;
+    color: $color-text-primary;
+    padding: 10px;
+    padding-right: 50px;
+    outline: 0;
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration { display: none; }
+  }
+
+  & button {
+    position: absolute;
+    right: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    & svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    & path        { fill: $color-jira-open; }
+    &:hover path  { fill: $color-jira-inprogress; }
+  }
+
+  & ul {
+    margin: 0;
+    height: 75%;
+    list-style: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0));
+    padding: 0;
+
+    &::-webkit-scrollbar { display: none; }
+
+    & li a {
+      display: block;
+      width: 100%;
+      background: rgba(255,255,255,0.5);
+      border-top: 1px solid #999;
+      color: #666;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-decoration: none;
+      transition: 0.2s;
+      padding: 10px;
+
+      &:hover { background: rgba(255,255,255,0.8); }
+    }
+  }
+}

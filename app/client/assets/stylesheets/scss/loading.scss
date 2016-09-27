@@ -1,0 +1,56 @@
+$animationDuration: 1.4s;
+$ballSize: 20px;
+$circleSize: 1.0;
+
+loading > .background {
+  @include flex-center-all;
+  @include fade-shown(100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  animation: fadein 0.2s linear;
+
+  &.hidden {
+    @include fade-hidden;
+    animation: fadeout 0.5s linear;
+  }
+
+  & .circle {
+    @include flex-center-all;
+    position: absolute;
+    width: $ballSize * $circleSize * $circleSize * 2;
+    height: $ballSize * $circleSize * $circleSize * 2;
+    border-radius: $ballSize * $circleSize * $circleSize * 2;
+    border: solid #fff 1px;
+
+    & > div {
+      position: absolute;
+      width: $ballSize * $circleSize;
+      height: $ballSize * $circleSize;
+      border-radius: $ballSize * $circleSize;
+      background: #fff;
+      border-radius: $ballSize;
+
+      &:nth-child(1) { animation: rotate1 $animationDuration ease-in-out infinite; }
+      &:nth-child(2) { animation: rotate2 $animationDuration ease-in-out infinite; }
+      &:nth-child(3) { animation: rotate3 $animationDuration ease-in-out infinite; }
+
+      @keyframes rotate1 {
+        0%   { transform: rotate(0deg) translateY(-100% * $circleSize) rotate(0deg); }
+        100% { transform: rotate(360deg) translateY(-100% * $circleSize) rotate(-360deg); }
+      }
+
+      @keyframes rotate2 {
+        0%   { transform: rotate(120deg) translateY(-100% * $circleSize) rotate(120deg); }
+        100% { transform: rotate(480deg) translateY(-100% * $circleSize) rotate(-480deg); }
+      }
+
+      @keyframes rotate3 {
+        0%   { transform: rotate(240deg) translateY(-100% * $circleSize) rotate(240deg); }
+        100% { transform: rotate(600deg) translateY(-100% * $circleSize) rotate(-600deg); }
+      }
+    }
+  }
+}

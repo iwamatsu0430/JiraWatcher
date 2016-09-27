@@ -1,0 +1,5 @@
+node_modules
+*.log
+components.js
+app/client/assets/stylesheets/**/*.css
+dist

@@ -1,0 +1,97 @@
+//=====================================
+//
+// sass variables
+//
+//=====================================
+$color-jira-primary:    rgb(32, 80, 129);
+$color-jira-open:       rgb(74, 103, 133);
+$color-jira-inprogress: rgb(255, 211, 81);
+$color-jira-closed:     rgb(20, 137, 44);
+
+$color-text-primary:    #666;
+$color-text-sub:        #ccc;
+
+//=====================================
+//
+// sass mixins
+//
+//=====================================
+@mixin flex-center-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin fade-shown($height) {
+  height: $height;
+  opacity: 1;
+  z-index: 100;
+}
+
+@mixin fade-hidden {
+  height: 0;
+  opacity: 0;
+  z-index: -1;
+}
+
+//=====================================
+//
+// key frames
+//
+//=====================================
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    height: 0;
+    z-index: -1;
+  }
+
+  1% {
+    opacity: 0;
+    height: 100%;
+    z-index: 100;
+  }
+
+  100% {
+    opacity: 1;
+    height: 100%;
+    z-index: 100;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+    height: 100%;
+    z-index: 100;
+  }
+
+  99% {
+    opacity: 0;
+    height: 100%;
+    z-index: 100;
+  }
+
+  100% {
+    opacity: 0;
+    height: 0;
+    z-index: -1;
+  }
+}
+
+//=====================================
+//
+// common css
+//
+//=====================================
+* {
+  font-family: Arial,sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: #fff;
+
+  &::-webkit-scrollbar { display: none; }
+}
